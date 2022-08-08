@@ -1,51 +1,89 @@
-// document.addEventListener("DOMContentLoaded", init, false);
+const API_URL = "https://pokeapi.co/api/v2/pokemon";
+let inptSearch = document.querySelector("#search");
+let searchBtn = document.querySelector("#searchBtn");
 
-// let data;
-// const pageSize = 4;
-// let curPage = 1;
-// let pokeName = document.querySelector("#pokeName");
-// async function init() {
-//   const res = await fetch(
-//     "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10000"
-//   );
+window.addEventListener("load", () => {
 
-//   data = await res.json();
-//   allPokemonsRender();
+  searchBtn.addEventListener("click", (e) => {
+    Render(getData(API_URL, inptSearch.value));
+    console.log(Render(getData(API_URL, inptSearch.value)))
+  });
 
-//   document.querySelector("#nextBtn").addEventListener("click", nextPage, false);
-//   document.querySelector("#prevBtn").addEventListener("click", previosPage, false);
-// }
+  Render(getData(API_URL));
+});
 
-// function allPokemonsRender() {
-//   let pokemons = "";
-//     let pokeCard = document.createElement('div');
-    
-//   data["results"]
-//     .filter((item, index) => {
-//       let start = (curPage - 1) * pageSize;
-//       let end = curPage * pageSize;
-//       console.log(start);
-//       if (index >= start && index < end) return true;
-//     })
-//     .forEach((poke) => {
-//       let url = poke.url;
-//       let str = url.split("/");
-//       const id = str.at(-2);
-//       pokemons += `
-//       <li >${poke.name}</li>
-//         <img src ='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png'> 
-//       `;
-//     });
-//   //https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png
-//   pokeName.innerHTML = pokemons;
-// }
+async function getData(url, query) {
+  if(inptSearch.value = ''){
+          const response = await fetch(`${url/query}`);
+          const results = await response.json();
+          return results;
+  }
 
-// function previosPage() {
-//   if (curPage > 1) curPage--;
-//   allPokemonsRender();
-// }
+  const response = await fetch(url);
+  const results = await response.json();
+  return results["results"];
+}
 
-// function nextPage() {
-//   if (curPage * pageSize < data["results"].length) curPage++;
-//   allPokemonsRender();
-// }
+async function Render(data) {
+  let pokemons = [];
+  pokemons = await data;
+  let container = document.querySelector(".cards");
+
+  pokemons.map((pokemon) => {
+    let url = new URL(`${pokemon["url"]}`);
+    id = url.pathname.split("/")[4];
+
+    let cards = document.querySelector(".cards");
+    let card = document.createElement("div");
+    card.classList = "card";
+
+    let card__img = document.createElement("div");
+    card__img.classList = "card__img";
+
+    let img = document.createElement("img");
+    img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+    img.alt = `${pokemon["name"]}.png`;
+    card__img.appendChild(img);
+
+    let card__content = document.createElement("div");
+    card__content.classList = "card__content";
+
+    let card__text = document.createElement("p");
+    card__text.classList = "card__text text--title";
+    card__text.textContent = pokemon["name"];
+
+    let card__info = document.createElement("div");
+    card__info.classList = "ard__info";
+
+    let card__id = document.createElement("p");
+    card__id.classList = "card__id";
+    card__id.textContent = id;
+
+    card__img.appendChild(img);
+    card__content.appendChild(card__text);
+    card__content.appendChild(card__id);
+
+    card.append(card__img);
+    card.append(card__content);
+
+    container.append(card);
+  });
+}
+
+async function findPokemon(quey) {}
+
+/* <div class="card">
+<div class="card__img">
+  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png"
+    alt="charmeleon.png">
+</div>
+<div class="card__content">
+  <p class="card__text text--title">Charmeleon</p>
+  <div class="card__info">
+    <p class="card__id">5</p>
+    <div class="card__type">
+      <h5 class="card-type">fire</h5>
+    </div>            
+  </div>
+</div>
+</div> */

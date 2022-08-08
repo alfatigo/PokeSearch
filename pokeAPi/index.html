@@ -4,110 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="JavaScript/app.js" defer></script>
-    <link rel="stylesheet" href="Styles/style.css" />
-    <title>PokInfo</title>
+    <link rel="stylesheet" href="/Styles/style.css" />
+    <script src="/JavaScript/app.js" defer></script>
+    <title>PokeDex</title>
   </head>
 
   <body>
-    <header>
-      <div class="inputContainer">
-        <input type="text" id="pokeSearch" value="" placeholder="Pikachu" />
-        <input type="button" id="searchBtn" value="Search" />
-      </div>
-    </header>
-    <section class="container">
-      <div class="pokemons">     
-
-        <div class="pokemon">
-          <h3>Pickachu</h3>          
-          <img
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-            alt="pikachu"
-          />
-          <div class="pokeStats">
-            <p>Type: electric</p>
-            <p>stat: 50</p>
-            <h3>Abilities</h5>
-                <p>static</p>
-                <p>lightning-rod</p>
+    <nav class="navBar">
+      <input
+        type="text"
+        name=""
+        id="search"
+        placeholder="Pikachu"
+        class="input-text"
+        required
+      />
+      <button type="submit" id="searchBtn" class="button button-default">
+        Search
+      </button>
+    </nav>
+    <div class="container">
+      <div class="cards">
+        <!---Card - Start--->
+        <!-- <div class="card">
+        <div class="card__img">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png"
+            alt="charmeleon.png">
+        </div>
+        <div class="card__content">
+          <p class="card__text text--title">Charmeleon</p>
+          <div class="card__info">
+            <p class="card__id">5</p>
+            <div class="card__type">
+              <h5 class="card-type">fire</h5>
+            </div>            
           </div>
         </div>
-        <div class="pokemon">
-            <h3>Pickachu</h3>          
-            <img
-              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-              alt="pikachu"
-            />
-            <div class="pokeStats">
-              <p>Type: electric</p>
-              <p>stat: 50</p>
-              <h3>Abilities</h5>
-                  <p>static</p>
-                  <p>lightning-rod</p>
-            </div>
-          </div>
-          <div class="pokemon">
-            <h3>Pickachu</h3>          
-            <img
-              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-              alt="pikachu"
-            />
-            <div class="pokeStats">
-              <p>Type: electric</p>
-              <p>stat: 50</p>
-              <h3>Abilities</h5>
-                  <p>static</p>
-                  <p>lightning-rod</p>
-            </div>
-          </div>   
-          <div class="pokemon">
-            <h3>Pickachu</h3>          
-            <img
-              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-              alt="pikachu"
-            />
-            <div class="pokeStats">
-              <p>Type: electric</p>
-              <p>stat: 50</p>
-              <h3>Abilities</h5>
-                  <p>static</p>
-                  <p>lightning-rod</p>
-            </div>
-          </div>    
-          <div class="pokemon">
-            <h3>Pickachu</h3>          
-            <img
-              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-              alt="pikachu"
-            />
-            <div class="pokeStats">
-              <p>Type: electric</p>
-              <p>stat: 50</p>
-              <h3>Abilities</h5>
-                  <p>static</p>
-                  <p>lightning-rod</p>
-            </div>
-          </div>    
-            <div class="pokemon">
-            <h3>Pickachu</h3>          
-            <img
-              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-              alt="pikachu"
-            />
-            <div class="pokeStats">
-              <p>Type: electric</p>
-              <p>stat: 50</p>
-              <h3>Abilities</h5>
-                  <p>static</p>
-                  <p>lightning-rod</p>
-            </div>
-          </div>           
+      </div> -->
+        <!---Card - End --->
       </div>
-      <!-- <div class="Buttons"> 
-      <input type="button" id="prevBtn" value="Previous" />
-      <input type="button" id="nextBtn" value="Next" />
-    </div> -->
-    </section>
+    </div>
   </body>
 </html>
